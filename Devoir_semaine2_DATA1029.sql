@@ -9,3 +9,8 @@ WHERE title LIKE '%computer%';
 SELECT title, price, COUNT(*)
 FROM titles
 WHERE title LIKE '%computer%';
+
+-- Question3
+SELECT title, price
+FROM titles
+WHERE title LIKE "su%" OR title LIKE "bu%";
