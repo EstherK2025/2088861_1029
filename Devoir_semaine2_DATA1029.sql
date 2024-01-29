@@ -31,3 +31,12 @@ SELECT title, price
 FROM titles
 WHERE NOT (title LIKE "s%" OR title LIKE "b%") 
 	AND SUBSTRING(title, 3, 1) = "f";
+    
+-- Question7
+SELECT title, price
+FROM titles
+WHERE title LIKE "A%" OR title LIKE "B%" OR title LIKE "C%" 
+			OR title LIKE "D%" OR title LIKE "E%" OR title LIKE "F%"
+            OR title LIKE "G%" OR title LIKE "H%" OR title LIKE "I%" 
+            OR title LIKE "J%";
+
