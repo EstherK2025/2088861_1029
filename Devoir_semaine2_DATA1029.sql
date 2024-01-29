@@ -19,3 +19,8 @@ WHERE title LIKE "su%" OR title LIKE "bu%";
 SELECT title, price
 FROM titles
 WHERE NOT (title LIKE "su%" OR title LIKE "bu%");
+
+-- Question5
+SELECT title, price
+FROM titles
+WHERE NOT (title LIKE "s%" OR title LIKE "b%") AND SUBSTRING(title, 2, 1) = 'o';
