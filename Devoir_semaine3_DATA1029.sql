@@ -40,4 +40,11 @@ SELECT E.emp_id, E.fname,  E.lname, E.job_lvl, E.hire_date, E.salary, P.pub_name
 FROM employees E, publishers P
 WHERE E.pub_id = P.pub_id;
 
+-- Question7 - Salaires horaires moyens des employes par maison d'edition:
+
+SELECT P.pub_name AS maison_edition, AVG(E.salary) AS salaire_horaire_moyen
+FROM employees E, publishers P
+WHERE E.pub_id = P.pub_id
+GROUP by P.pub_name;
+
 
