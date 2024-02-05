@@ -29,7 +29,7 @@ FROM authors A
 	LEFT JOIN titles T ON TA.title_id = T.title_id
 	LEFT JOIN publishers P ON T.pub_id = P.pub_id AND A.city = P.city
 	WHERE NOT (A.city = P.city);
-
+ 
 -- Question5 - Effectif(nombre) d'employes par niveau d'experience:
 SELECT job_lvl AS niveau_experience, COUNT(*) AS nombre_employes
 FROM  employees
@@ -41,10 +41,18 @@ FROM employees E, publishers P
 WHERE E.pub_id = P.pub_id;
 
 -- Question7 - Salaires horaires moyens des employes par maison d'edition:
-
 SELECT P.pub_name AS maison_edition, AVG(E.salary) AS salaire_horaire_moyen
 FROM employees E, publishers P
 WHERE E.pub_id = P.pub_id
 GROUP by P.pub_name;
+
+-- Question8 - Effectif(nombre) d'employées de niveau SEINIOR par maison d'edition:
+SELECT P.pub_name AS maison_edition, COUNT(*) AS nombre_employes_senior
+FROM employees E, publishers P
+WHERE  E.pub_id = P.pub_id AND E.job_lvl = "SEINIOR"
+GROUP by P.pub_name;
+
+
+
 
 
