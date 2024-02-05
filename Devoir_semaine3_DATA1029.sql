@@ -28,6 +28,12 @@ FROM authors A
 	LEFT JOIN titleauthor TA ON A.au_id = TA.au_id
 	LEFT JOIN titles T ON TA.title_id = T.title_id
 	LEFT JOIN publishers P ON T.pub_id = P.pub_id AND A.city = P.city
-	WHERE NOT A.city = P.city
+	WHERE NOT (A.city = P.city);
+
+-- Question5 - Effectif(nombre) d'employes par niveau d'experience:
+
+SELECT job_lvl AS niveau_experience, COUNT(*) AS nombre_employes
+FROM  employees
+GROUP by job_lvl;
 
 
