@@ -31,9 +31,13 @@ FROM authors A
 	WHERE NOT (A.city = P.city);
 
 -- Question5 - Effectif(nombre) d'employes par niveau d'experience:
-
 SELECT job_lvl AS niveau_experience, COUNT(*) AS nombre_employes
 FROM  employees
 GROUP by job_lvl;
+
+-- Question6 - Liste des employes par maison d'edition:
+SELECT E.emp_id, E.fname,  E.lname, E.job_lvl, E.hire_date, E.salary, P.pub_name AS maison_edition
+FROM employees E, publishers P
+WHERE E.pub_id = P.pub_id;
 
 
