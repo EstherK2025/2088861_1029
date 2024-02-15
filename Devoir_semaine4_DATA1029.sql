@@ -15,3 +15,26 @@ WHERE au_id NOT IN (
   )
 );
 
+
+
+-- Question 3: Obtenir la liste des noms d’auteurs ayant touché une avance supérieure à toutes les avances versées par l'éditeur "Harmattan"
+SELECT au_lname, au_fname
+FROM authors
+WHERE au_id IN (
+  SELECT au_id
+  FROM titles
+  WHERE pub_id = (
+    SELECT pub_id
+    FROM publishers
+    WHERE pub_name = "Eyrolles"
+  ) AND advance IN (
+    SELECT advance
+    FROM titles
+    WHERE pub_id = (
+      SELECT pub_id
+      FROM publishers
+      WHERE pub_name = "Harmattan"
+    )
+  )
+);
+
