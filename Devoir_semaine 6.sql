@@ -45,3 +45,5 @@ WHERE e.salary = (
   FROM employees e2
   WHERE e2.job_id = e.job_id
 );
+-- 7.De quels types sont les livres les plus vendus. (10 pts)
+-- Je n'ai pas réussi à faire cette question
