@@ -47,3 +47,13 @@ WHERE e.salary = (
 );
 -- 7.De quels types sont les livres les plus vendus. (10 pts)
 -- Je n'ai pas réussi à faire cette question
+
+-- 8.Pour chaque boutique, les 2 livres les plus vendus et leurs prix. (10 pts)
+SELECT t.title, t.price, s.stor_name
+FROM stores s
+INNER JOIN sales sa ON s.stor_id = sa.stor_id
+INNER JOIN titles t ON sa.title_id = t.title_id
+GROUP BY s.stor_name, t.title
+ORDER BY s.stor_name, SUM(qty) DESC
+LIMIT 2; -- je n'ai pas réussi à obtenir les livres et leur prix pour les 4 boutiques
+
