@@ -60,3 +60,8 @@ LIMIT 2; -- je n'ai pas réussi à obtenir les livres et leur prix pour les 4 bo
 -- 9 Les auteurs des 5 livres les plus vendus.
 -- Je n'ai pas réussi à faire cette question
 
+-- 10.Prix moyens des livres par maisons d’édition. (10 pts)
+SELECT p.pub_name, AVG(t.price) AS avg_price
+FROM publishers p
+INNER JOIN titles t ON p.pub_id = t.pub_id
+GROUP BY p.pub_name;
