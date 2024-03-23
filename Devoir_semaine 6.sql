@@ -57,3 +57,6 @@ GROUP BY s.stor_name, t.title
 ORDER BY s.stor_name, SUM(qty) DESC
 LIMIT 2; -- je n'ai pas réussi à obtenir les livres et leur prix pour les 4 boutiques
 
+-- 9 Les auteurs des 5 livres les plus vendus.
+-- Je n'ai pas réussi à faire cette question
+
