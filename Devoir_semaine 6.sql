@@ -20,3 +20,9 @@ FROM employees e
 INNER JOIN publishers p ON e.pub_id = p.pub_id
 WHERE p.country = 'Canada';
 
+-- 4.Noms complets des employés qui ont un manager. (10pts)
+SELECT e.fname, e.lname
+FROM employees e
+INNER JOIN jobs j ON e.job_id = j.job_id
+WHERE j.max_lvl = 'MANAGER';
+
