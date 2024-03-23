@@ -26,3 +26,13 @@ FROM employees e
 INNER JOIN jobs j ON e.job_id = j.job_id
 WHERE j.max_lvl = 'MANAGER';
 
+-- 5.Noms complets des employés qui ont un salaire au-dessus de la moyenne de salaire chez leur employeur. (10 pts)
+SELECT e.fname, e.lname
+FROM employees e
+INNER JOIN (
+  SELECT job_id, AVG(salary) AS avg_salary
+  FROM employees
+  GROUP BY job_id
+) AS avg_salaries ON e.job_id = avg_salaries.job_id
+WHERE e.salary > avg_salaries.avg_salary;
+
