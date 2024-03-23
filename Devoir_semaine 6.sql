@@ -36,3 +36,12 @@ INNER JOIN (
 ) AS avg_salaries ON e.job_id = avg_salaries.job_id
 WHERE e.salary > avg_salaries.avg_salary;
 
+-- 6.Noms complets des employés qui ont le salaire minimum de leur grade (10 pts)
+SELECT e.fname, e.lname
+FROM employees e
+INNER JOIN jobs j ON e.job_id = j.job_id
+WHERE e.salary = (
+  SELECT MIN(salary)
+  FROM employees e2
+  WHERE e2.job_id = e.job_id
+);
