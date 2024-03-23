@@ -14,3 +14,9 @@ WHERE salary > (
   FROM employees
   WHERE lname = 'Zongo' AND fname = 'Norbert'
 );
+-- 3.Noms complets des employés des éditeurs canadiens. (10 pts)
+SELECT e.fname, e.lname
+FROM employees e
+INNER JOIN publishers p ON e.pub_id = p.pub_id
+WHERE p.country = 'Canada';
+
