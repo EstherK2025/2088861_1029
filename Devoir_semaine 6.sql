@@ -37,14 +37,6 @@ INNER JOIN (
 WHERE e.salary > avg_salaries.avg_salary;
 
 -- 6.Noms complets des employés qui ont le salaire minimum de leur grade (10 pts)
-SELECT e.fname, e.lname
-FROM employees e
-INNER JOIN jobs j ON e.job_id = j.job_id
-WHERE e.salary = (
-  SELECT MIN(salary)
-  FROM employees e2
-  WHERE e2.job_id = e.job_id
-);
 -- 7.De quels types sont les livres les plus vendus. (10 pts)
 -- Je n'ai pas réussi à faire cette question
 
@@ -65,3 +57,12 @@ SELECT p.pub_name, AVG(t.price) AS avg_price
 FROM publishers p
 INNER JOIN titles t ON p.pub_id = t.pub_id
 GROUP BY p.pub_name;
+
+-- 11.Les 3 auteurs ayant les plus de livres (10 pts)
+SELECT au.au_fname, au.au_lname, COUNT(DISTINCT t.title_id) AS book_nbr
+FROM authors au
+INNER JOIN titleauthor ta ON au.au_id = ta.au_id
+INNER JOIN titles t ON ta.title_id = t.title_id
+GROUP BY au.au_id
+ORDER BY book_nbr DESC
+LIMIT 3;
